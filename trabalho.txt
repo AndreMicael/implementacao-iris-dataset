@@ -1,0 +1,75 @@
+**Parte 1: Implementação de Árvore de Decisão ou Rede Neural Artificial (MLP)**
+
+**1. Objetivo**
+
+O objetivo desta parte do trabalho é consolidar os conhecimentos teóricos e práticos sobre árvores de decisão e redes neurais artificiais (Perceptron de Múltiplas Camadas — MLP), por meio da implementação de um desses algoritmos aplicado a um problema real de classificação.
+
+Cada grupo deverá:
+
+1. Implementar um dos dois algoritmos (árvore de decisão ou MLP) para o tema definido pela professora;
+2. Avaliar o desempenho do modelo utilizando métricas apropriadas;
+3. Apresentar os resultados obtidos de forma clara e objetiva;
+4. Justificar as decisões tomadas durante a construção e implementação do modelo (pré-processamento, hiperparâmetros, arquitetura, critérios de poda/parada, etc.);
+5. Descrever as melhorias implementadas ao longo do desenvolvimento e seu impacto no desempenho final.
+
+**2. Requisitos técnicos**
+
+- O algoritmo escolhido (árvore de decisão ou MLP) deve ser implementado utilizando bibliotecas usuais de aprendizado de máquina (ex.: scikit-learn, Keras/TensorFlow ou PyTorch), sendo permitido também implementar o algoritmo "do zero" para fins de aprofundamento, mediante aprovação prévia da professora.
+- Deve ser realizada uma etapa de pré-processamento dos dados (tratamento de valores ausentes, normalização/padronização, codificação de variáveis categóricas, divisão treino/teste).
+- A avaliação de desempenho deve incluir, no mínimo: acurácia, matriz de confusão, precisão, recall e F1-score.
+- Deve ser realizado ao menos um processo de ajuste de hiperparâmetros (ex.: profundidade máxima da árvore, número de camadas/neurônios da MLP, taxa de aprendizado, critério de poda, etc.), com justificativa das escolhas.
+- Recomenda-se comparar ao menos duas configurações do modelo (ex.: antes e depois de uma melhoria implementada), demonstrando de forma objetiva o ganho (ou perda) de desempenho.
+
+**Parte 2: Aplicação de Aprendizado Não Supervisionado (Agrupamento)**
+
+**1. Objetivo**
+
+Esta segunda etapa tem como objetivo introduzir os alunos a uma técnica de aprendizado não supervisionado, aplicando um algoritmo de agrupamento (clustering) sobre o mesmo dataset utilizado na Parte 1.
+
+Os alunos deverão:
+
+1. Aplicar o algoritmo K-Means sobre os dados, sem utilizar a variável-alvo (rótulo/classe) como entrada;
+2. Comparar os grupos formados com as classes reais do problema, verificando se o agrupamento conseguiu separar bem os dados;
+3. Apresentar uma breve conclusão sobre o resultado obtido.
+
+**2. Requisitos técnicos**
+
+- Utilizar o mesmo pré-processamento já realizado na Parte 1;
+- Definir o número de clusters;
+- Gerar um gráfico simples dos clusters formados;
+- Comparar os clusters com as classes reais, verificando quantos elementos de cada classe ficaram em cada cluster (pode ser feito com uma tabela simples ou matriz de contingência).
+
+**3. Análise esperada**
+
+O grupo deverá responder, de forma objetiva, no relatório:
+
+- Os clusters formados se aproximaram das classes reais? Em que medida?
+- Na opinião do grupo, por que isso aconteceu (ou não aconteceu)?
+
+**Entregáveis (Parte 1 + Parte 2)**
+
+Relatório técnico único, contendo obrigatoriamente:
+
+- Descrição do problema e do dataset utilizado;
+- Etapas de pré-processamento realizadas;
+- Descrição da arquitetura/configuração do modelo implementado (Parte 1);
+- Metodologia de avaliação e resultados obtidos (com gráficos/tabelas) (Parte 1);
+- Discussão crítica sobre as decisões tomadas e melhorias implementadas (Parte 1);
+- Gráfico dos clusters obtidos, tabela comparativa e conclusão (Parte 2);
+- Conclusões finais e possíveis trabalhos futuros.
+
+Apresentação oral de 5 a 7 minutos, na qual o grupo deverá:
+
+- Explicar o problema e o dataset escolhido;
+- Apresentar a solução implementada na Parte 1 e os principais resultados;
+- Justificar as decisões técnicas tomadas;
+- Apresentar os resultados do agrupamento (Parte 2) e a conclusão obtida;
+- Responder a perguntas da professora e dos colegas.
+
+Nosso tema 
+
+**a) Iris Dataset**
+
+Classificação de espécies de flores (Setosa, Versicolor e Virginica) a partir de medidas morfológicas de pétalas e sépalas. O objetivo é construir um modelo capaz de identificar corretamente a espécie da flor com base nesses atributos numéricos, servindo como problema introdutório de classificação multiclasse.
+
+Dataset: https://archive.ics.uci.edu/dataset/53/iris
