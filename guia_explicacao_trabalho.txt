@@ -1,110 +1,110 @@
-GUIA SIMPLES DO TRABALHO: IRIS, ARVORE DE DECISAO E K-MEANS
+GUIA SIMPLES DO TRABALHO: IRIS, ÁRVORE DE DECISÃO E K-MEANS
 
-1. QUAL E A IDEIA DO TRABALHO?
+1. QUAL É A IDEIA DO TRABALHO?
 
 O trabalho usa dados de flores do tipo Iris para responder a duas perguntas
 diferentes:
 
-1) Parte 1: "Dadas as medidas de uma flor, qual especie ela e?"
-   Para isso foi usada uma Arvore de Decisao.
+1) Parte 1: "Dadas as medidas de uma flor, qual espécie ela é?"
+   Para isso foi usada uma Árvore de Decisão.
 
-2) Parte 2: "Se eu nao disser quais sao as especies, o computador consegue
+2) Parte 2: "Se eu não disser quais são as espécies, o computador consegue
    juntar flores parecidas em grupos?"
    Para isso foi usado o K-Means.
 
-A primeira pergunta e classificacao supervisionada. O computador aprende usando
-exemplos que ja possuem resposta. A segunda e agrupamento nao supervisionado.
+A primeira pergunta é classificação supervisionada. O computador aprende usando
+exemplos que já possuem resposta. A segunda é agrupamento não supervisionado.
 Nesse caso, o computador recebe apenas as medidas e procura grupos por conta
-propria.
+própria.
 
 
 2. O DATASET IRIS
 
-O Iris Dataset e uma base de dados muito conhecida em aprendizado de maquina.
-Ela possui 150 flores. Existem tres especies, com 50 exemplos de cada:
+O Iris Dataset é uma base de dados muito conhecida em aprendizado de máquina.
+Ela possui 150 flores. Existem três espécies, com 50 exemplos de cada:
 
 - setosa
 - versicolor
 - virginica
 
-Cada flor tem quatro medidas, todas em centimetros:
+Cada flor tem quatro medidas, todas em centímetros:
 
-- comprimento da sepala
-- largura da sepala
-- comprimento da petala
-- largura da petala
+- comprimento da sépala
+- largura da sépala
+- comprimento da pétala
+- largura da pétala
 
-Sepalas e petalas sao partes da flor. De forma simples, podemos pensar que sao
+Sépalas e pétalas são partes da flor. De forma simples, podemos pensar que são
 as medidas que descrevem o tamanho e o formato dela.
 
-Exemplo hipotetico:
+Exemplo hipotético:
 
 Flor A:
-- petala pequena: 1,4 cm de comprimento
-- petala estreita: 0,2 cm de largura
+- pétala pequena: 1,4 cm de comprimento
+- pétala estreita: 0,2 cm de largura
 
 Esse tipo de flor tem grande chance de ser uma setosa, pois setosas costumam
-ter petalas menores que as outras especies.
+ter pétalas menores que as outras espécies.
 
-O objetivo do modelo e aprender relacoes desse tipo usando os exemplos reais.
+O objetivo do modelo é aprender relações desse tipo usando os exemplos reais.
 
 
-3. O QUE SAO ATRIBUTOS E ROTULO?
+3. O QUE SÃO ATRIBUTOS E RÓTULO?
 
-Os ATRIBUTOS sao as informacoes usadas para fazer uma previsao. Neste trabalho,
-os quatro atributos sao as medidas de sepalas e petalas.
+Os ATRIBUTOS são as informações usadas para fazer uma previsão. Neste trabalho,
+os quatro atributos são as medidas de sépalas e pétalas.
 
-O ROTULO e a resposta que queremos prever. Aqui, o rotulo e a especie:
+O RÓTULO é a resposta que queremos prever. Aqui, o rótulo é a espécie:
 setosa, versicolor ou virginica.
 
-Uma comparacao simples:
+Uma comparação simples:
 
-- atributos: as pistas de um jogo de adivinhacao
-- rotulo: a resposta final do jogo
+- atributos: as pistas de um jogo de adivinhação
+- rótulo: a resposta final do jogo
 
-Na Parte 1, o modelo recebe atributos e rotulos durante o treinamento.
-Na Parte 2, o K-Means recebe somente os atributos. Os rotulos ficam guardados
-para a comparacao no final.
+Na Parte 1, o modelo recebe atributos e rótulos durante o treinamento.
+Na Parte 2, o K-Means recebe somente os atributos. Os rótulos ficam guardados
+para a comparação no final.
 
 
-4. PRE-PROCESSAMENTO: O QUE FOI FEITO?
+4. PRÉ-PROCESSAMENTO: O QUE FOI FEITO?
 
-Pre-processamento e preparar os dados antes de treinar um algoritmo. E como
+Pré-processamento é preparar os dados antes de treinar um algoritmo. É como
 conferir os ingredientes antes de cozinhar.
 
-Foram verificadas estas situacoes:
+Foram verificadas estas situações:
 
 a) Valores ausentes
-Um valor ausente acontece quando uma informacao nao foi preenchida. Exemplo:
-uma flor sem a medida de largura da petala.
+Um valor ausente acontece quando uma informação não foi preenchida. Exemplo:
+uma flor sem a medida de largura da pétala.
 
-No Iris nao existem valores ausentes. Portanto, nao foi preciso apagar linhas
+No Iris não existem valores ausentes. Portanto, não foi preciso apagar linhas
 nem preencher dados.
 
-b) Variaveis categoricas
-Variaveis categoricas sao textos ou categorias, como "azul", "verde" ou
-"setosa". Alguns algoritmos precisam transformar esses textos em numeros.
+b) Variáveis categóricas
+Variáveis categóricas são textos ou categorias, como "azul", "verde" ou
+"setosa". Alguns algoritmos precisam transformar esses textos em números.
 
-Os quatro atributos do Iris ja sao numeros. Por isso nao houve codificacao dos
-atributos. A especie ja vem representada internamente por 0, 1 e 2.
+Os quatro atributos do Iris já são números. Por isso não houve codificação dos
+atributos. A espécie já vem representada internamente por 0, 1 e 2.
 
-c) Normalizacao ou padronizacao
+c) Normalização ou padronização
 Normalizar/padronizar significa colocar medidas em escalas parecidas.
-Por exemplo, transformar notas de 0 a 10 e salarios de 0 a 10.000 em uma
-escala mais comparavel.
+Por exemplo, transformar notas de 0 a 10 e salários de 0 a 10.000 em uma
+escala mais comparável.
 
-Para a Arvore de Decisao, isso nao e necessario. Ela cria regras como:
+Para a Árvore de Decisão, isso não é necessário. Ela cria regras como:
 
-"se petal length <= 2,45, entao a flor e setosa".
+"se petal length <= 2,45, então a flor é setosa".
 
-Ela nao calcula distancia entre pontos, entao a escala nao muda essa regra.
+Ela não calcula distância entre pontos, então a escala não muda essa regra.
 
-No K-Means, a escala costuma importar porque ele usa distancia. Mesmo assim,
-o enunciado pediu o mesmo pre-processamento da Parte 1. Por isso a Parte 2
-tambem foi executada sem normalizacao. Isso deve ser mencionado se alguem
-perguntar: foi uma decisao para manter os dois processos iguais.
+No K-Means, a escala costuma importar porque ele usa distância. Mesmo assim,
+o enunciado pediu o mesmo pré-processamento da Parte 1. Por isso a Parte 2
+também foi executada sem normalização. Isso deve ser mencionado se alguém
+perguntar: foi uma decisão para manter os dois processos iguais.
 
-d) Divisao entre treino e teste
+d) Divisão entre treino e teste
 Na Parte 1, os 150 exemplos foram divididos assim:
 
 - 105 flores para treino (70%)
@@ -113,79 +113,79 @@ Na Parte 1, os 150 exemplos foram divididos assim:
 O conjunto de treino serve para ensinar o modelo. O conjunto de teste fica
 separado e serve para verificar se ele aprendeu de verdade.
 
-E como estudar com uma lista de exercicios e depois fazer uma prova com
-questoes que nao foram usadas no estudo.
+É como estudar com uma lista de exercícios e depois fazer uma prova com
+questões que não foram usadas no estudo.
 
-A divisao foi estratificada. Isso significa que a proporcao das especies foi
+A divisão foi estratificada. Isso significa que a proporção das espécies foi
 mantida: cada conjunto continuou com quantidades equilibradas de setosa,
 versicolor e virginica.
 
 
-5. PARTE 1: O QUE E UMA ARVORE DE DECISAO?
+5. PARTE 1: O QUE É UMA ÁRVORE DE DECISÃO?
 
-Uma Arvore de Decisao toma uma decisao por etapas, usando perguntas simples.
-Ela parece uma sequencia de "se... entao...".
+Uma Árvore de Decisão toma uma decisão por etapas, usando perguntas simples.
+Ela parece uma sequência de "se... então...".
 
 Exemplo simplificado:
 
-1. A petala tem comprimento menor ou igual a 2,45 cm?
-   - Sim: provavelmente e setosa.
-   - Nao: va para a proxima pergunta.
+1. A pétala tem comprimento menor ou igual a 2,45 cm?
+   - Sim: provavelmente é setosa.
+   - Não: vá para a próxima pergunta.
 
-2. A largura da petala e menor ou igual a determinado valor?
-   - Sim: provavelmente e versicolor.
-   - Nao: provavelmente e virginica.
+2. A largura da pétala é menor ou igual a determinado valor?
+   - Sim: provavelmente é versicolor.
+   - Não: provavelmente é virginica.
 
-Cada pergunta e chamada de NO. Cada resultado final e uma FOLHA.
+Cada pergunta é chamada de NÓ. Cada resultado final é uma FOLHA.
 
-O modelo escolhe as perguntas que melhor separam as especies. Ele faz isso
+O modelo escolhe as perguntas que melhor separam as espécies. Ele faz isso
 automaticamente ao observar os dados de treino.
 
 
 6. O QUE SIGNIFICA "GINI"?
 
-O criterio Gini ajuda a arvore a escolher qual pergunta fazer em cada no.
-Ele mede o quanto um grupo esta misturado.
+O critério Gini ajuda a árvore a escolher qual pergunta fazer em cada nó.
+Ele mede o quanto um grupo está misturado.
 
 Exemplo:
 
 Grupo 1: 10 flores, todas setosa.
-Esse grupo esta puro. O valor de impureza e baixo.
+Esse grupo está puro. O valor de impureza é baixo.
 
 Grupo 2: 10 flores, com setosa, versicolor e virginica misturadas.
-Esse grupo esta impuro. O valor de impureza e maior.
+Esse grupo está impuro. O valor de impureza é maior.
 
-A arvore procura divisao que deixe os grupos mais puros. No nosso melhor modelo,
-o criterio escolhido foi "gini".
+A árvore procura divisão que deixe os grupos mais puros. No nosso melhor modelo,
+o critério escolhido foi "gini".
 
 
 7. MODELO BASELINE E MODELO AJUSTADO
 
-Antes de melhorar um modelo, e util ter uma versao simples para comparacao.
-Essa primeira versao e chamada de baseline.
+Antes de melhorar um modelo, é útil ter uma versão simples para comparação.
+Essa primeira versão é chamada de baseline.
 
 Baseline:
-- arvore sem limite de profundidade
+- árvore sem limite de profundidade
 - profundidade encontrada: 5
-- numero de folhas: 8
-- acuracia no teste: 93,33%
+- número de folhas: 8
+- acurácia no teste: 93,33%
 
-Depois foi feito ajuste de hiperparametros.
+Depois foi feito ajuste de hiperparâmetros.
 
-Hiperparametros sao configuracoes definidas antes do treinamento. Eles nao sao
-aprendidos como as regras da arvore; nos escolhemos quais valores testar.
+Hiperparâmetros são configurações definidas antes do treinamento. Eles não são
+aprendidos como as regras da árvore; nós escolhemos quais valores testar.
 
 Foram testados:
 
-- max_depth: profundidade maxima da arvore
-- min_samples_split: numero minimo de exemplos para criar uma nova divisao
-- criterion: forma de medir a qualidade da divisao (gini ou entropy)
+- max_depth: profundidade máxima da árvore
+- min_samples_split: número mínimo de exemplos para criar uma nova divisão
+- criterion: forma de medir a qualidade da divisão (gini ou entropy)
 
-O GridSearchCV testou combinacoes desses valores. O "CV" significa validacao
-cruzada: o conjunto de treino e dividido em partes menores para comparar as
-configuracoes de forma mais confiavel.
+O GridSearchCV testou combinações desses valores. O "CV" significa validação
+cruzada: o conjunto de treino é dividido em partes menores para comparar as
+configurações de forma mais confiável.
 
-Melhor configuracao encontrada:
+Melhor configuração encontrada:
 
 - criterion = gini
 - max_depth = 3
@@ -193,71 +193,71 @@ Melhor configuracao encontrada:
 
 Modelo ajustado:
 - profundidade: 3
-- numero de folhas: 5
-- acuracia no teste: 97,78%
+- número de folhas: 5
+- acurácia no teste: 97,78%
 
-A versao ajustada e menor e acertou mais. Ela cometeu 1 erro em 45 flores.
+A versão ajustada é menor e acertou mais. Ela cometeu 1 erro em 45 flores.
 A baseline cometeu 3 erros em 45 flores.
 
-Isso e um exemplo de controle de overfitting.
+Isso é um exemplo de controle de overfitting.
 
 
-8. O QUE E OVERFITTING?
+8. O QUE É OVERFITTING?
 
 Overfitting acontece quando o modelo aprende detalhes demais do conjunto de
-treino, inclusive pequenos padroes que nao se repetem em dados novos.
+treino, inclusive pequenos padrões que não se repetem em dados novos.
 
-Uma analogia: um aluno decora exatamente as respostas de uma lista, mas nao
+Uma analogia: um aluno decora exatamente as respostas de uma lista, mas não
 entende o assunto. Quando a pergunta muda um pouco na prova, ele erra.
 
-Uma arvore muito profunda pode fazer muitas perguntas e ficar especifica
-demais. Ao limitar max_depth para 3, a arvore ficou mais simples e, neste
+Uma árvore muito profunda pode fazer muitas perguntas e ficar específica
+demais. Ao limitar max_depth para 3, a árvore ficou mais simples e, neste
 caso, generalizou melhor no teste.
 
-Generalizar significa funcionar bem em exemplos que o modelo nao viu antes.
+Generalizar significa funcionar bem em exemplos que o modelo não viu antes.
 
 
-9. METRICAS DA PARTE 1
+9. MÉTRICAS DA PARTE 1
 
-Metricas sao numeros usados para avaliar o desempenho do modelo.
+Métricas são números usados para avaliar o desempenho do modelo.
 
-a) Acuracia
-Acuracia e a proporcao total de acertos.
+a) Acurácia
+Acurácia é a proporção total de acertos.
 
-Formula simples:
+Fórmula simples:
 acertos / total de exemplos
 
 No modelo ajustado:
 44 acertos / 45 exemplos = 97,78%
 
-b) Precisao
-Precisao responde:
-"Quando o modelo diz que uma flor e de certa especie, quantas vezes ele esta
+b) Precisão
+Precisão responde:
+"Quando o modelo diz que uma flor é de certa espécie, quantas vezes ele está
 certo?"
 
 Exemplo: se o modelo previu 10 flores como virginica e 9 eram realmente
-virginica, a precisao para virginica seria 9/10 = 90%.
+virginica, a precisão para virginica seria 9/10 = 90%.
 
 c) Recall
 Recall responde:
-"Das flores que eram realmente de uma especie, quantas o modelo encontrou?"
+"Das flores que eram realmente de uma espécie, quantas o modelo encontrou?"
 
 Exemplo: se existiam 15 virginicas no teste e o modelo identificou 14 delas
 como virginica, o recall dessa classe seria 14/15.
 
 d) F1-score
-O F1-score combina precisao e recall em um unico numero. Ele e util quando se
-quer um equilibrio: nao basta prever uma classe com cuidado se o modelo deixa
+O F1-score combina precisão e recall em um único número. Ele é útil quando se
+quer um equilíbrio: não basta prever uma classe com cuidado se o modelo deixa
 muitos exemplos daquela classe passar.
 
-Neste trabalho foi usada a media macro. Ela calcula a metrica de cada especie
-e depois faz uma media simples, dando o mesmo peso para as tres especies.
-Como o Iris e balanceado, isso funciona bem.
+Neste trabalho foi usada a média macro. Ela calcula a métrica de cada espécie
+e depois faz uma média simples, dando o mesmo peso para as três espécies.
+Como o Iris é balanceado, isso funciona bem.
 
 
-10. MATRIZ DE CONFUSAO
+10. MATRIZ DE CONFUSÃO
 
-A matriz de confusao mostra em quais classes o modelo acertou e em quais ele
+A matriz de confusão mostra em quais classes o modelo acertou e em quais ele
 se confundiu.
 
 No modelo ajustado, ela foi:
@@ -270,190 +270,190 @@ virginica            0        0          15
 
 Como ler:
 
-- Cada linha mostra a especie real.
+- Cada linha mostra a espécie real.
 - Cada coluna mostra o que o modelo previu.
-- Os valores na diagonal principal sao os acertos.
-- Os valores fora da diagonal sao erros.
+- Os valores na diagonal principal são os acertos.
+- Os valores fora da diagonal são erros.
 
-Exemplo da unica confusao:
+Exemplo da única confusão:
 Havia 15 flores versicolor no teste. O modelo acertou 14 e classificou 1 como
 virginica. Isso faz sentido porque versicolor e virginica possuem medidas mais
 parecidas entre si do que com setosa.
 
 
-11. PARTE 2: O QUE E K-MEANS?
+11. PARTE 2: O QUE É K-MEANS?
 
-K-Means e um algoritmo de agrupamento. Ele nao recebe a resposta certa durante
-o treinamento. Em vez disso, procura dados que estejam proximos uns dos outros.
+K-Means é um algoritmo de agrupamento. Ele não recebe a resposta certa durante
+o treinamento. Em vez disso, procura dados que estejam próximos uns dos outros.
 
-O valor K significa o numero de grupos que queremos formar.
+O valor K significa o número de grupos que queremos formar.
 
-Neste trabalho, K = 3, pois sabemos que o dataset possui tres especies.
-Mas o algoritmo nao recebe os nomes setosa, versicolor ou virginica.
+Neste trabalho, K = 3, pois sabemos que o dataset possui três espécies.
+Mas o algoritmo não recebe os nomes setosa, versicolor ou virginica.
 
 Funcionamento simplificado:
 
-1. O algoritmo escolhe 3 pontos iniciais chamados centroides.
-2. Cada flor e colocada no grupo do centroide mais proximo.
-3. O centroide de cada grupo e recalculado como a media das flores daquele
+1. O algoritmo escolhe 3 pontos iniciais chamados centróides.
+2. Cada flor é colocada no grupo do centróide mais próximo.
+3. O centróide de cada grupo é recalculado como a média das flores daquele
    grupo.
-4. Os passos 2 e 3 se repetem ate os grupos pararem de mudar muito.
+4. Os passos 2 e 3 se repetem até os grupos pararem de mudar muito.
 
-Centroides sao como o "centro medio" de cada grupo.
+Centróides são como o "centro médio" de cada grupo.
 
 
-12. K-MEANS NAO E CLASSIFICACAO
+12. K-MEANS NÃO É CLASSIFICAÇÃO
 
-Essa diferenca e importante:
+Essa diferença é importante:
 
-Arvore de Decisao:
-- usa especies conhecidas no treino
-- tenta prever a especie correta
-- e supervisionada
+Árvore de Decisão:
+- usa espécies conhecidas no treino
+- tenta prever a espécie correta
+- é supervisionada
 
 K-Means:
-- nao usa especies no treino
-- apenas forma grupos por semelhanca
-- e nao supervisionado
+- não usa espécies no treino
+- apenas forma grupos por semelhança
+- é não supervisionado
 
-Depois que o K-Means terminou, os clusters foram comparados com os rotulos
-reais apenas para verificar se os grupos se parecem com as especies.
+Depois que o K-Means terminou, os clusters foram comparados com os rótulos
+reais apenas para verificar se os grupos se parecem com as espécies.
 
-O numero do cluster nao tem significado fixo. Por exemplo, cluster 0 nao quer
-dizer automaticamente setosa. Os numeros sao apenas identificadores criados
+O número do cluster não tem significado fixo. Por exemplo, cluster 0 não quer
+dizer automaticamente setosa. Os números são apenas identificadores criados
 pelo algoritmo.
 
 
 13. RESULTADOS DO K-MEANS
 
-Tabela de contingencia obtida:
+Tabela de contingência obtida:
 
 CLASSE REAL       CLUSTER 0  CLUSTER 1  CLUSTER 2
 setosa                 0         50          0
 versicolor            48          0          2
 virginica             14          0         36
 
-Interpretacao:
+Interpretação:
 
 - Cluster 1: possui as 50 setosas. Foi um grupo puro.
-- Cluster 0: tem principalmente versicolor, mas tambem 14 virginicas.
+- Cluster 0: tem principalmente versicolor, mas também 14 virginicas.
 - Cluster 2: tem principalmente virginica, com 2 versicolors.
 
-Para comparar de uma forma simples, cada cluster foi associado a especie
+Para comparar de uma forma simples, cada cluster foi associado a espécie
 predominante nele:
 
 - cluster 0 -> versicolor
 - cluster 1 -> setosa
 - cluster 2 -> virginica
 
-Depois desse mapeamento, 134 de 150 flores ficaram associadas a especie correta:
+Depois desse mapeamento, 134 de 150 flores ficaram associadas a espécie correta:
 
 134 / 150 = 89,3%
 
-Esse numero nao e exatamente a acuracia de um classificador, porque K-Means nao
-foi treinado para classificar. E apenas uma forma pratica de medir o quanto os
-grupos encontrados se aproximam das especies reais.
+Esse número não é exatamente a acurácia de um classificador, porque K-Means não
+foi treinado para classificar. É apenas uma forma prática de medir o quanto os
+grupos encontrados se aproximam das espécies reais.
 
 
 14. POR QUE A SETOSA FOI SEPARADA MELHOR?
 
-Setosa tem medidas de petala bem diferentes das outras especies. Por isso,
-ela fica mais distante de versicolor e virginica no espaco de dados.
+Setosa tem medidas de pétala bem diferentes das outras espécies. Por isso,
+ela fica mais distante de versicolor e virginica no espaço de dados.
 
-Versicolor e virginica tem caracteristicas mais parecidas e se sobrepoem em
+Versicolor e virginica têm características mais parecidas e se sobrepõem em
 algumas medidas. Por isso, o K-Means misturou algumas delas.
 
 Isso explica os resultados:
 
-- A arvore de decisao teve desempenho maior porque recebeu os rotulos e
-  aprendeu regras para separar especies.
-- O K-Means encontrou grupos parecidos com as especies, mas nao separou tudo
-  perfeitamente porque so olha proximidade.
+- A árvore de decisão teve desempenho maior porque recebeu os rótulos e
+  aprendeu regras para separar espécies.
+- O K-Means encontrou grupos parecidos com as espécies, mas não separou tudo
+  perfeitamente porque só olha proximidade.
 
 
-15. O QUE MOSTRAM OS GRAFICOS?
+15. O QUE MOSTRAM OS GRÁFICOS?
 
 resultados_parte1.png:
 
-- A esquerda: matriz de confusao da Arvore de Decisao.
-  Os numeros mostram 44 acertos e 1 erro no conjunto de teste.
+- À esquerda: matriz de confusão da Árvore de Decisão.
+  Os números mostram 44 acertos e 1 erro no conjunto de teste.
 
-- A direita: desenho da arvore.
-  Cada caixa e uma pergunta. As cores representam a especie predominante em
-  cada parte da arvore. As caixas finais indicam a previsao.
+- À direita: desenho da árvore.
+  Cada caixa é uma pergunta. As cores representam a espécie predominante em
+  cada parte da árvore. As caixas finais indicam a previsão.
 
 resultados_parte2.png:
 
-- A esquerda: clusters gerados pelo K-Means.
-  Cada cor representa um cluster. Os "X" vermelhos sao os centroides.
+- À esquerda: clusters gerados pelo K-Means.
+  Cada cor representa um cluster. Os "X" vermelhos são os centróides.
 
-- A direita: especies reais.
-  Esse grafico serve para comparar visualmente os clusters com os rotulos.
+- À direita: espécies reais.
+  Esse gráfico serve para comparar visualmente os clusters com os rótulos.
 
-Os graficos usam comprimento e largura da petala porque essas medidas ajudam
-bastante a diferenciar as especies.
+Os gráficos usam comprimento e largura da pétala porque essas medidas ajudam
+bastante a diferenciar as espécies.
 
 
 16. COMO EXPLICAR O TRABALHO EM POUCOS MINUTOS
 
-Uma explicacao possivel para a apresentacao:
+Uma explicação possível para a apresentação:
 
-"Nos usamos o Iris Dataset, que tem 150 flores de tres especies e quatro
-medidas de sepalas e petalas. Na primeira parte, treinamos uma Arvore de
-Decisao para prever a especie. Separamos 70% dos dados para treino e 30% para
-teste. Comparamos uma arvore simples com outra ajustada por GridSearch. A
-arvore ajustada, com profundidade maxima 3, obteve 97,78% de acuracia e errou
+"Nós usamos o Iris Dataset, que tem 150 flores de três espécies e quatro
+medidas de sépalas e pétalas. Na primeira parte, treinamos uma Árvore de
+Decisão para prever a espécie. Separamos 70% dos dados para treino e 30% para
+teste. Comparamos uma árvore simples com outra ajustada por GridSearch. A
+árvore ajustada, com profundidade máxima 3, obteve 97,78% de acurácia e errou
 apenas uma flor versicolor, prevista como virginica.
 
-Na segunda parte, aplicamos K-Means com tres clusters sem usar o rotulo da
-especie. Depois comparamos os clusters com as classes reais. A setosa foi
+Na segunda parte, aplicamos K-Means com três clusters sem usar o rótulo da
+espécie. Depois comparamos os clusters com as classes reais. A setosa foi
 separada perfeitamente, mas houve mistura entre versicolor e virginica, que
-sao mais parecidas. Os clusters se aproximaram das classes reais em cerca de
+são mais parecidas. Os clusters se aproximaram das classes reais em cerca de
 89,3% das flores. Isso mostra que o agrupamento encontrou uma estrutura
-parecida com as especies, mesmo sem receber os nomes delas."
+parecida com as espécies, mesmo sem receber os nomes delas."
 
 
-17. PERGUNTAS QUE PODEM APARECER NA APRESENTACAO
+17. PERGUNTAS QUE PODEM APARECER NA APRESENTAÇÃO
 
-Pergunta: Por que usaram Arvore de Decisao?
-Resposta: Porque e um modelo simples de entender, funciona bem com dados
-numericos e permite visualizar as regras usadas na previsao.
+Pergunta: Por que usaram Árvore de Decisão?
+Resposta: Porque é um modelo simples de entender, funciona bem com dados
+numéricos e permite visualizar as regras usadas na previsão.
 
 Pergunta: Por que o modelo ajustado foi melhor?
-Resposta: A limitacao da profundidade para 3 deixou a arvore menos complexa e
+Resposta: A limitação da profundidade para 3 deixou a árvore menos complexa e
 reduziu o risco de overfitting. Ela acertou 44 de 45 flores no teste.
 
-Pergunta: Por que nao normalizaram os dados?
-Resposta: A Arvore de Decisao nao precisa de normalizacao, pois faz divisoes
-por regras. Na Parte 2 mantivemos o mesmo pre-processamento pedido no
+Pergunta: Por que não normalizaram os dados?
+Resposta: A Árvore de Decisão não precisa de normalização, pois faz divisões
+por regras. Na Parte 2 mantivemos o mesmo pré-processamento pedido no
 enunciado.
 
 Pergunta: Por que escolheram k=3?
-Resposta: Porque o Iris tem tres especies. Foi escolhido esse numero para
-verificar se os tres grupos naturais encontrados pelo K-Means correspondem a
+Resposta: Porque o Iris tem três espécies. Foi escolhido esse número para
+verificar se os três grupos naturais encontrados pelo K-Means correspondem a
 elas.
 
-Pergunta: Por que o K-Means teve resultado menor que a Arvore?
-Resposta: A arvore usa a especie correta durante o treino. O K-Means nao usa
-rotulos e so separa por distancia. Versicolor e virginica possuem exemplos
-parecidos, entao alguns ficaram no mesmo cluster.
+Pergunta: Por que o K-Means teve resultado menor que a Árvore?
+Resposta: A árvore usa a espécie correta durante o treino. O K-Means não usa
+rótulos e só separa por distância. Versicolor e virginica possuem exemplos
+parecidos, então alguns ficaram no mesmo cluster.
 
-Pergunta: O que significa uma matriz de confusao?
-Resposta: E uma tabela que compara especie real com especie prevista. Os
-valores da diagonal sao acertos; fora dela aparecem as confusoes do modelo.
+Pergunta: O que significa uma matriz de confusão?
+Resposta: É uma tabela que compara espécie real com espécie prevista. Os
+valores da diagonal são acertos; fora dela aparecem as confusões do modelo.
 
 
-18. CONCLUSAO
+18. CONCLUSÃO
 
 O trabalho mostra duas formas diferentes de lidar com os mesmos dados.
 
-A Arvore de Decisao aprendeu a classificar as especies com alta taxa de acerto,
-pois teve acesso aos rotulos no treinamento. O ajuste de hiperparametros deixou
-a arvore menor e melhor no teste.
+A Árvore de Decisão aprendeu a classificar as espécies com alta taxa de acerto,
+pois teve acesso aos rótulos no treinamento. O ajuste de hiperparâmetros deixou
+a árvore menor e melhor no teste.
 
-O K-Means formou grupos parecidos com as especies sem receber os rotulos.
+O K-Means formou grupos parecidos com as espécies sem receber os rótulos.
 Setosa foi isolada com facilidade. Versicolor e virginica tiveram alguma
-mistura porque as caracteristicas delas sao mais parecidas.
+mistura porque as características delas são mais parecidas.
 
-Em resumo: a Parte 1 responde "qual especie e esta flor?" e a Parte 2
+Em resumo: a Parte 1 responde "qual espécie é esta flor?" e a Parte 2
 responde "quais flores parecem pertencer ao mesmo grupo?".
